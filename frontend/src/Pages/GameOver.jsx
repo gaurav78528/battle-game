@@ -1,16 +1,17 @@
 import React from "react";
-import "../styles/style.css";
 import { useNavigate } from "react-router-dom";
-const Home = () => {
+import "../styles/style.css";
+
+const GameOver = () => {
   const navigate = useNavigate();
   return (
     <div className="container center">
-      <h1>Welcome to Battle Game</h1>
+      <h1>Game Over</h1>
       <button className="btn" onClick={() => navigate("/play-game")}>
-        Start Game
+        Play Again
       </button>
     </div>
   );
 };
 
-export default Home;
+export default GameOver;

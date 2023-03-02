@@ -1,0 +1,86 @@
+body {
+  background-color: rgba(248, 241, 230, 0.412);
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: auto;
+  background-color: rgba(128, 128, 128, 0.311);
+}
+.btn:hover {
+  background-color: #222221;
+  color: papayawhip;
+}
+
+.game-board-container {
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom right,
+    papayawhip,
+    rgb(90, 89, 87)
+  );
+}
+
+.game-heading {
+  padding: 20px 0;
+  text-align: center;
+}
+.game-board {
+  border: 1px solid red;
+  height: 80%;
+}
+.player-info-container {
+  width: 300px;
+  margin: auto;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgba(169, 169, 165, 0.475);
+}
+
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.player-info span {
+  font-weight: 400;
+}
+.player-info > p {
+  font-weight: 500;
+}
+.health-bar {
+  /* border: 2px solid yellow; */
+}
+
+.bar-container {
+  background-color: #d4d1d1;
+  padding: 5px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+  align-items: center;
+}
+
+.max-health {
+  height: 20px;
+  transition: all 0.5s;
+  background-color: red;
+  border-radius: 3px;
+}
