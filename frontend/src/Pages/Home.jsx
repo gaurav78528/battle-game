@@ -9,7 +9,7 @@ const Home = () => {
       <Heading as={"h1"} szie="md">
         Welcome to Battle Game
       </Heading>
-      <button className="btn" onClick={() => navigate("/play-game")}>
+      <button className="btn bg-btn" onClick={() => navigate("/play-game")}>
         Start Game
       </button>
     </div>

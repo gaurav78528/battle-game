@@ -2,25 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { opponentStats, playerStats } from "../character";
 import BattleMenu from "../Components/BattleMenu";
-import { useBattleSequence } from "../hooks/useBattleSequence";
-import { useOpponentPlayer } from "../hooks/useOpponentPlayer";
 import "../styles/style.css";
 import PlayerSummary from "./../Components/PlayerSummary";
-import { attack } from "./../helpers/helpers";
 import { useToast, Heading } from "@chakra-ui/react";
 
 const GameBoard = () => {
-  // const [sequence, setSequence] = useState({});
-  // const {
-  //   turn,
-  //   inSequence,
-  // playerHealth,
-  // opponentHealth,
-  //   playerAnimation,
-  //   opponentAnimation,
-  // } = useBattleSequence(sequence);
-  // const oppPlayer = useOpponentPlayer(turn);
-
   const [playerHealth, setPlayerHealth] = useState(playerStats.maxHealth);
   const [opponentHealth, setopponentHealth] = useState(opponentStats.maxHealth);
   const [playerTurn, setPlayerTurn] = useState(true);
@@ -51,12 +37,6 @@ const GameBoard = () => {
       });
     }
   }, [playerTurn]);
-
-  // useEffect(() => {
-  //   if (oppPlayer && turn === 1 && !inSequence) {
-  //     setSequence({ turn, mode: oppPlayer });
-  //   }
-  // }, [turn, oppPlayer, inSequence]);
 
   const handleAttack = () => {
     setSlideLeft(true);
@@ -143,18 +123,11 @@ const GameBoard = () => {
             <div className="player-box">
               <div
                 className={`player-bullet ${slideLeft && "player-bullet-left"}`}
-
-                // style={{
-                //   transform: `${playerBullet} ? ${"translateX(900px)"}: ${"translateX(0px)"}`,
-                // }}
               ></div>
               <div
                 className={`player-bullet ${
                   slideRight && "player-bullet-right"
                 }`}
-                // style={{
-                //   transform: `${playerBullet} ? ${"translateX(900px)"}: ${"translateX(0px)"}`,
-                // }}
               ></div>
               <img
                 src={playerStats.img}
@@ -190,9 +163,6 @@ const GameBoard = () => {
             onAttack={handleAttack}
             onMagic={handleMagic}
             onHeal={handleHeal}
-            // onAttack={() => setSequence({ turn, mode: "attack" })}
-            // onMagic={() => setSequence({ turn, mode: "magic" })}
-            // onHeal={() => setSequence({ turn, mode: "heal" })}
           />
         </div>
       </div>

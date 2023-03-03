@@ -10,7 +10,7 @@ const GameOver = () => {
       <Heading as={"h1"} szie="md">
         Game Over
       </Heading>
-      <button className="btn" onClick={() => navigate("/play-game")}>
+      <button className="btn bg-btn" onClick={() => navigate("/play-game")}>
         Play Again
       </button>
     </div>

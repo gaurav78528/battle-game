@@ -2,8 +2,6 @@ import React from "react";
 import Bar from "./Bar";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
-import { playerStats } from "./../character";
-
 const PlayerSummary = ({
   main,
   name,

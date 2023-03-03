@@ -15,15 +15,7 @@ body {
   align-items: center;
   gap: 30px;
 }
-/* .btn {
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: 500;
-  cursor: pointer;
-  margin: auto;
-  background-color: rgba(128, 128, 128, 0.311);
-} */
+
 .btn {
   border: none;
   padding: 10px 20px;
@@ -37,15 +29,12 @@ body {
   background-color: #222221;
   color: papayawhip;
 }
-
+.bg-btn {
+  background-color: papayawhip;
+  color: #000;
+}
 .game-board-container {
   height: 100vh;
-  /* background-image: linear-gradient(
-    to bottom right,
-
-    rgb(173, 172, 170),
-    papayawhip
-  ); */
   background-image: url("https://media.istockphoto.com/id/1175899549/photo/the-ruins-of-an-abandoned-destroyed-post-apocalyptic-city-at-sunset-the-concept-of-apocalypse.jpg?b=1&s=170667a&w=0&k=20&c=2hO08VsGfxr2dT2FySaBfYWLl3CH2v9HwfMQRaiweuY=");
   background-repeat: no-repeat;
   background-size: cover;
@@ -58,8 +47,6 @@ body {
   text-align: center;
 }
 .game-board {
-  /* border: 1px solid red;*/
-
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
