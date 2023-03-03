@@ -1,6 +1,7 @@
 import React from "react";
 
 const BattleMenu = ({ onAttack, onMagic, onHeal }) => {
+
   return (
     <div className="battle-menu">
       <button onClick={onAttack} className="btn">
