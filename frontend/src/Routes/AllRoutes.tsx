@@ -5,7 +5,7 @@ import GameOver from "../Pages/GameOver";
 import Home from "../Pages/Home";
 import NotFound from "../Pages/NotFound";
 
-const AllRoutes = () => {
+const AllRoutes = ():React.ReactNode => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
