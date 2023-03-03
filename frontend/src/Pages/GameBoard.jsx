@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { opponentStats, playerStats } from "../character";
 import BattleMenu from "../Components/BattleMenu";
 import { useBattleSequence } from "../hooks/useBattleSequence";
@@ -6,6 +7,7 @@ import { useOpponentPlayer } from "../hooks/useOpponentPlayer";
 import "../styles/style.css";
 import PlayerSummary from "./../Components/PlayerSummary";
 import { attack } from "./../helpers/helpers";
+import { useToast, Heading } from "@chakra-ui/react";
 
 const GameBoard = () => {
   // const [sequence, setSequence] = useState({});
@@ -23,12 +25,30 @@ const GameBoard = () => {
   const [opponentHealth, setopponentHealth] = useState(opponentStats.maxHealth);
   const [playerTurn, setPlayerTurn] = useState(true);
   const [winner, setWinner] = useState("");
+  const [slideLeft, setSlideLeft] = useState(false);
+  const [slideRight, setSlideRight] = useState(false);
+
+  const navigate = useNavigate();
+  const toast = useToast();
+
+  console.log(playerHealth);
   console.log(winner);
+
   useEffect(() => {
     if (playerTurn) {
-      alert(`It's ${playerStats.name} turn`);
+      toast({
+        title: `It's ${playerStats.name} turn`,
+        position: "top",
+        duration: 2000,
+        isClosable: true,
+      });
     } else {
-      alert(`It's ${opponentStats.name} turn`);
+      toast({
+        title: `It's ${opponentStats.name} turn`,
+        position: "top",
+        duration: 2000,
+        isClosable: true,
+      });
     }
   }, [playerTurn]);
 
@@ -39,46 +59,68 @@ const GameBoard = () => {
   // }, [turn, oppPlayer, inSequence]);
 
   const handleAttack = () => {
-    console.log("clicked");
+    setSlideLeft(true);
     if (playerTurn) {
       setopponentHealth((prevHealth) => prevHealth - 10);
-      console.log(opponentHealth);
     }
 
     if (!playerTurn) {
+      setSlideLeft(false);
+      setSlideRight(true);
       setPlayerHealth((prevHealth) => prevHealth - 10);
-      console.log(playerHealth);
     }
     setPlayerTurn(!playerTurn);
+    if (playerHealth <= 0) {
+      setWinner(opponentStats.name);
+
+      // alert(winner);
+    } else if (opponentHealth <= 0) {
+      setWinner(playerStats.name);
+      // alert(winner);
+    }
   };
 
   const handleMagic = () => {
     let randomHealth = Math.floor(Math.random() * 100);
-    console.log(randomHealth);
     if (playerTurn) {
       setopponentHealth((prevHealth) => prevHealth - randomHealth);
-      console.log(opponentHealth);
     }
     if (!playerTurn) {
       setPlayerHealth((prevHealth) => prevHealth - randomHealth);
-      console.log(playerHealth);
     }
     setPlayerTurn(!playerTurn);
+    if (playerHealth <= 0) {
+      setWinner(opponentStats.name);
+    } else if (opponentHealth <= 0) {
+      setWinner(playerStats.name);
+    }
   };
 
-  if (playerHealth <= 0) {
-    setWinner(opponentStats.name);
-
-    // alert(winner);
-  } else if (opponentHealth <= 0) {
-    setWinner(playerStats.name);
-    // alert(winner);
+  if (winner) {
+    toast({
+      title: "Congratluations.",
+      description: `Hurray ${winner} Wins`,
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    });
+    navigate("/game-over");
   }
 
-  const handleHeal = () => {};
+  const handleHeal = () => {
+    if (playerTurn) {
+      setPlayerHealth((prevHealth) => prevHealth + 50);
+    }
+    if (!playerTurn) {
+      setopponentHealth((prevHealth) => prevHealth + 50);
+    }
+  };
   return (
     <div className="game-board-container">
-      <h1 className="game-heading">Game Board</h1>
+      <Heading as={"h1"} szie="md" className="game-heading">
+        Game Board
+      </Heading>
       <div className="game-board">
         <div className="opponent">
           <div className="summary">
@@ -89,6 +131,7 @@ const GameBoard = () => {
               level={opponentStats.level}
               maxHealth={opponentStats.maxHealth}
               heal={opponentStats.heal}
+              playerTurn={playerTurn}
             />
           </div>
         </div>
@@ -98,7 +141,21 @@ const GameBoard = () => {
           </h1>
           <div className="players-board">
             <div className="player-box">
-              <div className="player-bullet"></div>
+              <div
+                className={`player-bullet ${slideLeft && "player-bullet-left"}`}
+
+                // style={{
+                //   transform: `${playerBullet} ? ${"translateX(900px)"}: ${"translateX(0px)"}`,
+                // }}
+              ></div>
+              <div
+                className={`player-bullet ${
+                  slideRight && "player-bullet-right"
+                }`}
+                // style={{
+                //   transform: `${playerBullet} ? ${"translateX(900px)"}: ${"translateX(0px)"}`,
+                // }}
+              ></div>
               <img
                 src={playerStats.img}
                 alt={playerStats.name}
@@ -106,7 +163,7 @@ const GameBoard = () => {
               />
             </div>
             <div className="opponent-box">
-            <div className="opponent-bullet"></div>
+              <div className="opponent-bullet"></div>
               <img
                 src={opponentStats.img}
                 alt={opponentStats.name}
@@ -124,6 +181,7 @@ const GameBoard = () => {
               level={playerStats.level}
               maxHealth={playerStats.maxHealth}
               heal={playerStats.heal}
+              playerTurn={playerTurn}
             />
           </div>
         </div>
