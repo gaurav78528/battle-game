@@ -6,7 +6,12 @@ const Bar = ({ label, health, maxHealth }) => {
       <div className="label">{label}</div>
       <div
         className="max-health "
-        style={{ width: `${(health / maxHealth) * 100}%` }}
+        style={{
+          width: `${(health / maxHealth) * 100}%`,
+          backgroundColor: `${
+            health < 50 ? (health <= 30 ? "red" : "orange") : "green"
+          }`,
+        }}
       ></div>
     </div>
   );
