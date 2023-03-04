@@ -8,12 +8,45 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.navbar {
+  height: 70px;
+  /* background-color: #000; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 40px;
+  color: papayawhip;
+}
+
+.navbar > h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+.nav-items {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 20px;
+}
+.nav-items > li {
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 5px;
+  transition: all 0.4s linear;
+}
+.nav-items > li:hover {
+  border-color: rgb(200, 186, 165);
+  color: rgb(200, 186, 165);
+}
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  z-index: 2;
 }
 
 .btn {
@@ -29,10 +62,7 @@ body {
   background-color: #222221;
   color: papayawhip;
 }
-.bg-btn {
-  background-color: papayawhip;
-  color: #000;
-}
+
 .game-board-container {
   height: 100vh;
   background-image: url("https://media.istockphoto.com/id/1175899549/photo/the-ruins-of-an-abandoned-destroyed-post-apocalyptic-city-at-sunset-the-concept-of-apocalypse.jpg?b=1&s=170667a&w=0&k=20&c=2hO08VsGfxr2dT2FySaBfYWLl3CH2v9HwfMQRaiweuY=");
@@ -170,4 +200,21 @@ body {
   top: 86px;
   left: -18px;
   /* animation */
+}
+.home-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+    url("https://media.istockphoto.com/id/1142581656/photo/an-anti-aircraft-cannon-and-military-silhouettes-fighting-scene-on-war-fog-sky-background.jpg?b=1&s=170667a&w=0&k=20&c=eLYrCjgd5kvE2QiQJxAnGJXC2y8SmNxfXDV-R3AYWUM=");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 100vh;
+}
+.game-over-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)),
+    url("https://media.istockphoto.com/id/1172963453/photo/urban-battlefield-scene-with-burning-tank-at-night.jpg?b=1&s=170667a&w=0&k=20&c=C2c7xMOew5s8t80jk_3ecfA9_UHSQsHr9ijyFaQNREQ=");
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 100vh;
 }
