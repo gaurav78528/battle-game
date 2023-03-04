@@ -46,7 +46,7 @@ export const Loginfunction = (data) => (dispatch) => {
       // console.log(e);
     });
 };
-
+//only for autosignIN
 export const AutoSignIn = (email) => (dispatch) => {
   dispatch({ type: SIGNIN_REQUEST });
   axios
