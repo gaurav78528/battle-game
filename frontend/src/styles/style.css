@@ -151,7 +151,7 @@ body {
   position: absolute;
   top: 58px;
   right: -21px;
-  transition: all 1s linear;
+  transition: all 0.3s linear;
 }
 .player-bullet-left {
   transform: translateX(900px);

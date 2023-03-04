@@ -7,8 +7,6 @@ const { parse } = require("dotenv");
 
 const UserRoute = express.Router();
 
-
-
 UserRoute.get("/:email", async (req, res) => {
   const email = req.params.email;
   try {
@@ -39,9 +37,7 @@ UserRoute.post("/register", async (req, res) => {
         gender,
         password: hash,
       });
-
       await user.save();
-
       res.send("successfully Registered");
     });
   } catch (err) {
@@ -50,7 +46,6 @@ UserRoute.post("/register", async (req, res) => {
     res.send({ error: err });
   }
 });
-
 
 UserRoute.post("/login", async (req, res) => {
   const { email, password } = req.body;
@@ -62,7 +57,6 @@ UserRoute.post("/login", async (req, res) => {
       bcrypt.compare(password, user[0].password, function (err, result) {
         if (result) {
           const token = email;
-
           res.send({ msg: "login successfull", email: token });
         } else {
           res.send("wrong crediential");
