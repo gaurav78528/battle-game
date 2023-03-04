@@ -7,7 +7,7 @@ import Login from "../Pages/Login";
 import NotFound from "../Pages/NotFound";
 import Register from "../Pages/Register";
 
-const AllRoutes = () => {
+const AllRoutes = ():React.ReactNode => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
