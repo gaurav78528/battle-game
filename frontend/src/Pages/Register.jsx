@@ -146,7 +146,7 @@ export default function Register({ isOpen, onOpen, onClose }) {
   const handleClick = () => setShow(!show);
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} >
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Create an account</ModalHeader>
@@ -223,8 +223,6 @@ export default function Register({ isOpen, onOpen, onClose }) {
                   </Button>
                 </InputRightElement>
               </InputGroup>
-
-              
             </FormControl>
           </ModalBody>
 

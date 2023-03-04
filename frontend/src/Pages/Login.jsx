@@ -5,7 +5,6 @@ import { AiFillFacebook } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
   Image,
@@ -35,14 +34,12 @@ import {
 
 import { Loginfunction } from "../Redux/AuthReducer/action";
 
-
-export default function Login({isOpen,onClose}) {
+export default function Login({ isOpen, onClose }) {
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
-const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
 
   const toast = useToast();
-
 
   const { isAuth, isError, isLoading } = useSelector((state) => {
     return {
@@ -61,11 +58,10 @@ const [password, setPassword] = useState("");
   const [loginRequest, setLoginRequest] = useState(0);
   const [isLargerThan992] = useMediaQuery("(min-width: 992px)");
 
-
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   useEffect(() => {
-    if (email !== "" && password !== "") {
+    if (email !== "" && password !== "" && !isLoading) {
       if (isAuth) {
         toast({
           title: `LogIn Successfull`,
@@ -74,13 +70,12 @@ const [password, setPassword] = useState("");
           position: "top",
           isClosable: true,
         });
-  
-          onClose()
+
+        onClose();
         setEmail("");
         setPassword("");
-
       } else {
-        if (isError){
+        if (isError) {
           toast({
             title: `Invalid User Details!!!`,
             status: "error",
@@ -94,8 +89,7 @@ const [password, setPassword] = useState("");
         console.log(isError);
       }
     }
-  }, [isAuth, isError, isLoading,loginRequest]);
-  
+  }, [isAuth, isError, isLoading]);
 
   console.log(isError, isAuth);
 
@@ -134,7 +128,7 @@ const [password, setPassword] = useState("");
         isClosable: true,
       });
     } else if (
-    !lowercaseReg(password) ||
+      !lowercaseReg(password) ||
       !digitsReg(password) ||
       !specialCharReg(password) ||
       !minLengthReg(password)
@@ -154,101 +148,93 @@ const [password, setPassword] = useState("");
           password: password,
         })
       );
-      setLoginRequest(loginRequest+1);
+      setLoginRequest(loginRequest + 1);
     }
   };
   // useEffect(() => {
   //   if (isAuth) {
-     
+
   //   }
   // },[]);
 
   return (
     <>
-    
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Create an account</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl
+              w={isLargerThan992 ? "80%" : "80%"}
+              borderRadius="lg"
+              p={"3"}
+              cursor="pointer"
+              mt={5}
+              isRequired
+            >
+              {/* email */}
+              <FormLabel htmlFor="email">Enter Email</FormLabel>
 
-
-    <Modal  isOpen={isOpen} onClose={onClose}>
-<ModalOverlay/>
-<ModalContent>
-  <ModalHeader>Create an account</ModalHeader>
-  <ModalCloseButton />
-  <ModalBody pb={6}>
-  <FormControl
-            w={isLargerThan992 ? "80%" : "80%"}
-            borderRadius="lg"
-            p={"3"}
-            cursor="pointer"
-            mt={5}
-            isRequired
-          >
-            {/* email */}
-            <FormLabel htmlFor="email">Enter Email</FormLabel>
-
-            <Input
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter Email address"
-              w={"100%"}
-              h={"40px"}
-              value={email}
-              border={`2px solid`}
-              type={"email"}
-              id="email"
-              required
-            />
-
-            <FormHelperText mb={"8px"}>
-              We'll never share your email.
-            </FormHelperText>
-
-            {/* password */}
-            <FormLabel htmlFor="password">Enter Password</FormLabel>
-            <InputGroup>
               <Input
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter Email address"
                 w={"100%"}
                 h={"40px"}
-                value={password}
-                type={show ? "text" : "password"}
+                value={email}
                 border={`2px solid`}
-                mb={"8px"}
-                id="password"
+                type={"email"}
+                id="email"
                 required
               />
 
-              <InputRightElement width="4.5rem">
-                <Button h="1.75rem" size="sm" onClick={handleClick}>
-                  {show ? "Hide" : "Show"}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            <Checkbox size={"lg"} defaultChecked>
-              Keep me signed in
-            </Checkbox>
-            <br />
+              <FormHelperText mb={"8px"}>
+                We'll never share your email.
+              </FormHelperText>
 
+              {/* password */}
+              <FormLabel htmlFor="password">Enter Password</FormLabel>
+              <InputGroup>
+                <Input
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                  w={"100%"}
+                  h={"40px"}
+                  value={password}
+                  type={show ? "text" : "password"}
+                  border={`2px solid`}
+                  mb={"8px"}
+                  id="password"
+                  required
+                />
 
-           
+                <InputRightElement width="4.5rem">
+                  <Button h="1.75rem" size="sm" onClick={handleClick}>
+                    {show ? "Hide" : "Show"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+              <Checkbox size={"lg"} defaultChecked>
+                Keep me signed in
+              </Checkbox>
+              <br />
+            </FormControl>
+          </ModalBody>
 
-          </FormControl>
-  </ModalBody>
-
-  <ModalFooter>
-    <button
-     onClick={SendSignInRequest}
-      className="btn"
-      style={{ background: "rgba(0,0,0,0.2)" }}
-    >
-      Login
-    </button>
-  </ModalFooter>
-</ModalContent>
-</Modal>
+          <ModalFooter>
+            <button
+              onClick={SendSignInRequest}
+              className="btn"
+              style={{ background: "rgba(0,0,0,0.2)" }}
+            >
+              Login
+            </button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
 
       {/* )
       } */}
     </>
   );
 }
-
