@@ -14,7 +14,7 @@ const AllRoutes = ():React.ReactNode => {
       <Route path="/play-game" element={<GameBoard />} />
       <Route path="/game-over" element={<GameOver />} />
       <Route path="*" element={<NotFound />} />
-      <Route path="/register" element={<Register />} />
+      {/* <Route path="/register" element={<Register />} /> */}
       <Route path="/login" element={<Login />} />
     </Routes>
   );
