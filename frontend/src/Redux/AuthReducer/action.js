@@ -8,9 +8,6 @@ import {
   SIGNIN_SUCCESS,
 } from "./actionTypes";
 
-
-
-
 export const SignUpFunction = (data) => (dispatch) => {
   dispatch({ type: CREATE_REQUEST });
   axios
@@ -35,11 +32,11 @@ export const Loginfunction = (data) => (dispatch) => {
         dispatch({ type: SIGNIN_SUCCESS, payload: response.data.email });
         localStorage.setItem("email", null);
         localStorage.setItem("email", JSON.stringify(response.data.email));
-      }else {
+      } else {
         dispatch({ type: SIGNIN_FAILURE });
-        
       }
-   
+
+      console.log(response)
     })
     .catch((e) => {
       dispatch({ type: SIGNIN_FAILURE });
@@ -60,10 +57,8 @@ export const AutoSignIn = (email) => (dispatch) => {
         dispatch({ type: SIGNIN_FAILURE });
         console.log(r.data);
       }
-      
     })
     .catch((e) => {
-     
       dispatch({ type: SIGNIN_FAILURE });
       console.log("error Login");
     });

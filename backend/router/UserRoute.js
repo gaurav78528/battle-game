@@ -10,7 +10,7 @@ const UserRoute = express.Router();
 UserRoute.get("/:email", async (req, res) => {
   const email = req.params.email;
   try {
-    const user = await CustomerUserModel.findOne({ email: email });
+    const user = await UserModel.findOne({ email: email });
 
     if (user) {
       res.send(user);
