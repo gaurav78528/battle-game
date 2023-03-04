@@ -41,18 +41,11 @@ export default function Register({ isOpen, onOpen, onClose }) {
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("");
   const [name, setName] = useState("");
-  // const { isOpen, onOpen, onClose } = useDisclosure();
-  // const initialRef = React.useRef(null);
-  // const finalRef = React.useRef(null);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toaster = useToast();
   const [show, setShow] = useState(false);
-  const [isLargerThan992] = useMediaQuery("(min-width: 992px)");
-  const GotoHome = () => {
-    navigate("/");
-  };
   const { userData, successfullyCreated, createAccountError } = useSelector(
     (state) => {
       return {
@@ -81,7 +74,13 @@ export default function Register({ isOpen, onOpen, onClose }) {
         isClosable: true,
       });
       setTimeout(() => {
-        navigate("/login");
+        toaster({
+          title: `You can Log in `,
+          duration: 2000,
+          position: "top",
+          status: "success",
+          isClosable: true,
+        });
       }, 2000);
     }
   }, [successfullyCreated]);
@@ -147,19 +146,7 @@ export default function Register({ isOpen, onOpen, onClose }) {
   const handleClick = () => setShow(!show);
   return (
     <>
-      {/* {isLoading ? (
-        <Flex justify="center" mt={"5"}>
-          <Spinner
-            thickness="5px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="blue"
-            size="lg"
-          />
-        </Flex>
-      ) : ( */}
-
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Create an account</ModalHeader>
@@ -237,12 +224,7 @@ export default function Register({ isOpen, onOpen, onClose }) {
                 </InputRightElement>
               </InputGroup>
 
-              <Text mt={"15px"} display="flex" justifyContent={"center"}>
-                Already have an account?
-                <Link to={"/login"} style={{ color: "blue" }}>
-                  Sign In
-                </Link>
-              </Text>
+              
             </FormControl>
           </ModalBody>
 
