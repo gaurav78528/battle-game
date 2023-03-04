@@ -1,5 +1,6 @@
 body {
   background-color: rgba(248, 241, 230, 0.412);
+  height: 100vh;
 }
 .center {
   position: absolute;
@@ -14,6 +15,7 @@ body {
   align-items: center;
   gap: 30px;
 }
+
 .btn {
   border: none;
   padding: 10px 20px;
@@ -21,21 +23,23 @@ body {
   font-weight: 500;
   cursor: pointer;
   margin: auto;
-  background-color: rgba(128, 128, 128, 0.311);
+  background-color: rgba(255, 255, 255, 0.311);
 }
 .btn:hover {
   background-color: #222221;
   color: papayawhip;
 }
-
+.bg-btn {
+  background-color: papayawhip;
+  color: #000;
+}
 .game-board-container {
   height: 100vh;
-  background-image: linear-gradient(
-    to bottom right,
-
-    rgb(173, 172, 170),
-    papayawhip
-  );
+  background-image: url("https://media.istockphoto.com/id/1175899549/photo/the-ruins-of-an-abandoned-destroyed-post-apocalyptic-city-at-sunset-the-concept-of-apocalypse.jpg?b=1&s=170667a&w=0&k=20&c=2hO08VsGfxr2dT2FySaBfYWLl3CH2v9HwfMQRaiweuY=");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* opacity: 0.8; */
+  /* background-position: center; */
 }
 
 .game-heading {
@@ -43,7 +47,14 @@ body {
   text-align: center;
 }
 .game-board {
+
   border: 2px solid rgb(179, 108, 38);
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 10px;
+
   height: 80%;
   width: 90%;
   margin: auto;
@@ -107,7 +118,7 @@ body {
 }
 .players-board {
   display: flex;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   justify-content: space-between;
   position: absolute;
   top: 50%;
@@ -125,11 +136,15 @@ body {
 }
 .heal-container {
   margin: 10px 0;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 8px;
 }
 .player-box,
 .opponent-box {
   position: relative;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .player-bullet {
   height: 4px;
@@ -140,10 +155,13 @@ body {
   position: absolute;
   top: 58px;
   right: -21px;
-  transition: all 1s linear;
+  transition: all 0.3s linear;
 }
-.player-bullet:hover {
+.player-bullet-left {
   transform: translateX(900px);
+}
+.player-bullet-right {
+  transform: translateX(-900px);
 }
 
 .opponent-bullet {

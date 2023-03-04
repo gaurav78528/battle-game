@@ -3,6 +3,7 @@ import "./styles/app.css";
 import AllRoutes from "./Routes/AllRoutes";
 import Chat from "./Pages/Chat";
 
+
 const App = () => {
   return (
     <>
@@ -11,5 +12,8 @@ const App = () => {
     </>
   );
 };
+
+const App = () => <AllRoutes />;
+
 
 export default App;

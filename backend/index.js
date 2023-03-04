@@ -1,22 +1,29 @@
 const express = require("express");
-const { connection } = require("./config/db");
 
+const { connection } = require("./config/db");
 const app = express();
-const PORT = process.env.PORT;
+const cors = require("cors");
+require("dotenv").config();
+
+const { UserRoute } = require("./router/UserRoute");
 
 app.use(express.json());
 
+app.use(cors());
+
 app.get("/", (req, res) => {
-  res.send({ message: "Hello World" });
+  res.send("This API is Private *** only admin access ");
 });
 
-app.listen(PORT, async () => {
+app.use("/userAuth", UserRoute);
+
+app.listen(process.env.port, async () => {
   try {
     await connection;
-    console.log("Connected To the Database.");
-  } catch (error) {
-    console.log("Failed to connect with Database.");
-    console.log(error);
+
+    console.log("connected to Db");
+  } catch (err) {
+    console.log(err, "unable to connect");
   }
-  console.log(`Server Running on Port ${PORT}`);
+  console.log("server is running");
 });
