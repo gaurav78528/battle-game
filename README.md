@@ -54,80 +54,38 @@
 
 It’s Group project where we've used MERN stack to make the Battle Game with our creativity along with frontend and backend integration. In this game two players fights with each other. Winner will be decided on the basis of health. Player with more health left will be declared as a Winner.
 
-![Screenshot (762)]![home](https://user-images.githubusercontent.com/107467642/223193710-6cb85cf8-36fe-4a53-ab60-fc178a27412d.png)
-
-
 
 <br />
 
-## Screens 
-- Homepage / Landing Page
-- Product Listing Page with all categories
-- Product Description Page
-- Cart Management Page
-- Checkout with Address Management Page
-- Login / Logout Page
-- Order Summary Page
-- Single Product Page
+## Glimpses of Battle Game🙈 :
+## Home Page 
+![home](https://user-images.githubusercontent.com/107467642/223194297-b9bc6b6c-55fd-4ee4-a8ef-00074b8c4c71.png)
 
 
-
-<br />
-
-
-## 🚀 Admin Features
-- All Statistics and Revenue Generated 
-- All Users Data
-- Can Delete Product From DB
-- Can Add Product to DB
- 
-## 🚀 User Features
-- Login and Signup User Account
-- Product Sorting Based on Price, Rating and Name
-- My Orders Section for details of all ordered item
-- Wishlist Add and Remove Items
-- Cart Add and Remove Items 
-- Cart Update Quantities 
-- Address Management
-- Order Summary
-
-<br />
-
-## Glimpses of PistonService.com 🙈 :
-## Some Pages of Our Website 
-![Screenshot (763)](https://user-images.githubusercontent.com/92500563/213993873-eeb57a30-e0f6-483a-a9b7-ab6a740b7686.png)
 <br/><br/>
-![Screenshot (765)](https://user-images.githubusercontent.com/92500563/213995227-7d9ad9da-78a8-4e9a-8b02-32f1a76aabe8.png)
+## Register
+![register](https://user-images.githubusercontent.com/107467642/223194415-d91d27e0-5077-4a02-9574-93f7c8846390.png)
+
+
 <br/><br/>
-![Screenshot (766)](https://user-images.githubusercontent.com/92500563/213995232-2120a7fe-3636-4268-b04b-17384347b5f7.png)
+## Login
+![login](https://user-images.githubusercontent.com/107467642/223194464-7cdfc38b-70fd-4cfb-8884-68c123518bf1.png)
+
 
 <br/> <br/>
-## Admin Panel
-![Screenshot (761)](https://user-images.githubusercontent.com/92500563/213993897-be290725-a4d8-4147-b71b-ff03a95bdd3c.png)
-
-<br/>
+## Game Board
+![game-board](https://user-images.githubusercontent.com/107467642/223194569-faf46d20-f3c5-4e95-9c7d-d455f3267789.png)
 
 
-
-
-<br />
+<br/><br />
+## Game Over
+![game-over](https://user-images.githubusercontent.com/107467642/223194727-36aac618-c9aa-4cee-bff1-dc220dde3ade.png)
 
 
 ### Tools used on this project
 
 - Visual Studio Code
 - Vite-JS template
-
-## Authors
-
-- [@Darshan Kale](https://www.linkedin.com/in/darshan-kale-264335171/)
-- [@Yogesh Yadav](https://www.linkedin.com/in/yadav-yogesh-583471233/)
-- [@Sandeep Prajapati](https://www.linkedin.com/in/sandeep-prajapati64/)
-- [@Deepak Mane](https://www.linkedin.com/in/manedeepak/)
-- [@Gaurav Suthar](https://www.linkedin.com/in/gaurav-suthar-4249aa246/)
-
-© 2023 Darshan Kale
-
 
 
 ## Show your support
